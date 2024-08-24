@@ -1,0 +1,41 @@
+# requires pydantic
+# requires huggingface
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "huggingface-inference-api"
+version = "1.0.0"
+description = "An example of accessing Hugging Face inference APIs from local code"
+readme="README.md"
+authors = [
+    {name = "David Mickelson", email = "davidpmickelson@gmail.com"}
+]
+license = {text = "MIT"}
+
+[project.urls]
+homepage = "https://github.com/dmickelson"
+repository = "https://github.com/dmickelson/SentimentAnalysisWithHuggingFaceProject"
+
+[project.dependencies]
+# Add your project dependencies here
+python = "^3.9"
+huggingface_hub = ""
+pydantic = ""
+pydantic-settings=""
+pandas = "^2.0"
+numpy = "^1.24"
+requests = "^2.28"
+torch = "^1.13"
+transformers = "^4.27"
+
+[tool.setuptools]
+# Add any setuptools-specific configurations here
+
+[tool.setuptools.package_data]
+"huggingface-sentiment-analysis" = ["data/Dropbox.csv"]
+
+[tool.setuptools.extras_require]
+dev = ["pytest"]
