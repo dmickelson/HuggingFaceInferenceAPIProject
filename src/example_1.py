@@ -2,6 +2,8 @@ from huggingface_hub import InferenceClient
 import json
 from config import Settings
 
+# * Testing using the Inference Client for HF repos that have serverless inferences available
+
 repo_id = "microsoft/Phi-3-mini-4k-instruct"
 settings = Settings()
 
