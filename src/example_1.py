@@ -4,9 +4,15 @@ from config import Settings
 
 # * Testing using the Inference Client for HF repos that have serverless inferences available
 
+
+# Hugging Face Inference Client Setup
+
+# Repository ID for the model to be used
 repo_id = "microsoft/Phi-3-mini-4k-instruct"
+# Load settings from the config file
 settings = Settings()
 
+# Initialize the Inference Client
 llm_client = InferenceClient(
     model=repo_id,
     timeout=120,
@@ -15,6 +21,16 @@ llm_client = InferenceClient(
 
 
 def call_llm(inference_client: InferenceClient, prompt: str) -> str:
+    """
+    Send a prompt to the language model and get the generated response.
+
+    Args:
+        inference_client (InferenceClient): The initialized Hugging Face Inference Client.
+        prompt (str): The input prompt for the language model.
+
+    Returns:
+        str: The generated text response from the model.
+    """
     response = inference_client.post(
         json={
             "inputs": prompt,
